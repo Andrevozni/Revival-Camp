@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revival Camp 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Space+Mono:wght@400;700&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Cormorant Garamond',serif;color:#f0ede6;overflow-x:hidden;background:#07111a}
+
+.page-wrap{
+  background:
+    radial-gradient(ellipse 90% 40% at 10% 8%, rgba(14,90,100,0.85) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 90% 15%, rgba(220,80,30,0.5) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 35% at 50% 50%, rgba(180,60,15,0.25) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 50% at 20% 85%, rgba(10,70,85,0.6) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 40% at 85% 80%, rgba(200,70,20,0.45) 0%, transparent 50%),
+    #07111a;
+  min-height:100vh;
+}
+.page-wrap::before{content:'';pointer-events:none;position:fixed;inset:0;z-index:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");opacity:.55}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:18px 48px;background:rgba(7,17,26,0.7);backdrop-filter:blur(20px);border-bottom:1px solid rgba(245,166,35,.15)}
+.nav-logo{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#f5a623}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,237,230,.55);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:#f5a623}
+.nav-cta{padding:10px 26px;border:1px solid #f5a623;color:#f5a623;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;background:transparent;cursor:pointer;transition:all .3s}
+.nav-cta:hover{background:#f5a623;color:#07111a}
+
+.hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 24px 100px}
+.badge{display:inline-block;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:#f5a623;border:1px solid rgba(245,166,35,.35);padding:8px 28px;margin-bottom:44px;opacity:0;animation:fadeUp .8s ease .3s forwards}
+.hero-script{font-style:italic;font-weight:300;font-size:clamp(22px,4vw,40px);color:rgba(240,237,230,.65);letter-spacing:.12em;margin-bottom:-12px;opacity:0;animation:fadeUp .8s ease .5s forwards}
+.hero-title{font-size:clamp(86px,20vw,200px);font-weight:700;line-height:.82;letter-spacing:-.02em;background:linear-gradient(150deg,#f7d060 0%,#f5a623 35%,#e8622a 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 80px rgba(245,166,35,.35));opacity:0;animation:fadeUp .9s ease .65s forwards}
+.hero-gen{font-size:clamp(40px,9vw,90px);font-weight:300;font-style:italic;color:#f0ede6;letter-spacing:.05em;margin-top:4px;text-shadow:0 0 60px rgba(14,90,100,.6);opacity:0;animation:fadeUp .9s ease .8s forwards}
+.hero-rule{width:1px;height:64px;background:linear-gradient(to bottom,transparent,rgba(245,166,35,.5),transparent);margin:44px auto;opacity:0;animation:fadeUp .8s ease 1s forwards}
+.hero-stats{display:flex;gap:64px;align-items:center;opacity:0;animation:fadeUp .9s ease 1.1s forwards}
+.stat{text-align:center}
+.stat-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(240,237,230,.5);margin-bottom:8px}
+.stat-val{font-size:clamp(26px,5vw,46px);font-weight:700;color:#f0ede6}
+.stat-sep{width:1px;height:56px;background:rgba(255,255,255,.13)}
+.hero-loc{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(240,237,230,.45);margin-top:28px;opacity:0;animation:fadeUp .8s ease 1.3s forwards}
+.hero-btn{margin-top:52px;display:inline-block;padding:20px 60px;background:linear-gradient(135deg,#f5a623,#e8622a);color:#07111a;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.25em;text-transform:uppercase;font-weight:700;border:none;cursor:pointer;box-shadow:0 0 60px rgba(232,98,42,.3);transition:opacity .3s,transform .2s;opacity:0;animation:fadeUp .8s ease 1.5s forwards}
+.hero-btn:hover{opacity:.85;transform:translateY(-2px)}
+
+.section{position:relative;z-index:1;padding:110px 24px}
+.section-inner{max-width:1080px;margin:0 auto}
+.section-tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:#f5a623;margin-bottom:20px}
+.section-title{font-size:clamp(38px,5vw,62px);font-weight:600;line-height:1;margin-bottom:32px}
+.section-title em{font-style:italic;font-weight:300;background:linear-gradient(135deg,#f5a623,#e8622a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.about-text{font-size:21px;line-height:1.75;color:rgba(240,237,230,.7);font-style:italic;margin-bottom:24px}
+.verse-block{border-left:2px solid #f5a623;padding:14px 18px;background:rgba(245,166,35,.05)}
+.verse-text{font-size:15px;line-height:1.6;color:rgba(240,237,230,.8);font-style:italic}
+.verse-ref{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#f5a623;margin-top:10px}
+
+.cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.info-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:30px 24px;position:relative;overflow:hidden;transition:background .3s}
+.info-card:hover{background:rgba(255,255,255,.07)}
+.info-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#f5a623,#e8622a);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.info-card:hover::before{transform:scaleX(1)}
+.card-lbl{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:#f5a623;margin-bottom:10px}
+.card-val{font-size:22px;font-weight:600;line-height:1.15}
+.card-sub{font-size:13px;color:rgba(240,237,230,.45);margin-top:4px;font-style:italic}
+.card-icon{font-size:20px;margin-bottom:14px}
+
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(245,166,35,.2),transparent);position:relative;z-index:1}
+
+.timeline-wrap{max-width:760px;margin:0 auto;position:relative;padding-left:28px}
+.timeline-wrap::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:1px;background:linear-gradient(to bottom,#f5a623,#e8622a,transparent)}
+.tl-row{display:flex;gap:28px;padding-bottom:44px;position:relative}
+.tl-row:last-child{padding-bottom:0}
+.tl-dot{position:absolute;left:-33px;top:6px;width:10px;height:10px;border-radius:50%;background:#f5a623;border:2px solid #07111a}
+.tl-date{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;color:#f5a623;white-space:nowrap;padding-top:2px;min-width:90px}
+.tl-title{font-size:23px;font-weight:600;margin-bottom:4px}
+.tl-desc{font-size:15px;color:rgba(240,237,230,.55);font-style:italic;line-height:1.5}
+
+.register-wrap{max-width:640px;margin:0 auto}
+.register-head{text-align:center;margin-bottom:56px}
+.register-title{font-size:clamp(40px,6vw,66px);font-weight:600;line-height:1;margin-bottom:16px}
+.register-title em{font-style:italic;font-weight:300;background:linear-gradient(135deg,#f5a623,#e8622a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.register-sub{font-size:19px;color:rgba(240,237,230,.55);font-style:italic;line-height:1.6}
+
+.deposit-note{display:flex;align-items:flex-start;gap:16px;background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.25);padding:20px 24px;margin-bottom:32px}
+.deposit-note-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.deposit-note-text{font-size:17px;line-height:1.6;color:rgba(240,237,230,.8);font-style:italic}
+.deposit-note-text strong{font-style:normal;color:#f5a623;font-weight:700}
+
+.form-box{background:rgba(14,90,100,.12);border:1px solid rgba(245,166,35,.18);padding:56px 48px;position:relative;backdrop-filter:blur(8px)}
+.form-box::before{content:'';position:absolute;top:0;left:60px;right:60px;height:1px;background:linear-gradient(90deg,transparent,#f5a623,transparent)}
+.field{margin-bottom:22px}
+.field label{display:block;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(240,237,230,.45);margin-bottom:10px}
+.field input{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:#f0ede6;font-family:'Cormorant Garamond',serif;font-size:21px;padding:13px 18px;outline:none;border-radius:0;transition:border-color .3s,background .3s;-webkit-appearance:none}
+.field input::placeholder{color:rgba(240,237,230,.25)}
+.field input:focus{border-color:#f5a623;background:rgba(245,166,35,.04)}
+.field input.err{border-color:rgba(232,98,42,.8)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.submit-btn{width:100%;margin-top:10px;padding:20px;background:linear-gradient(135deg,#f5a623,#e8622a);color:#07111a;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.25em;text-transform:uppercase;font-weight:700;border:none;cursor:pointer;box-shadow:0 0 50px rgba(232,98,42,.25);transition:opacity .3s,transform .2s}
+.submit-btn:disabled{opacity:.6;cursor:not-allowed}
+.submit-btn:hover:not(:disabled){opacity:.88;transform:translateY(-1px)}
+.success-box{display:none;text-align:center;padding:44px 0 12px}
+.success-box.show{display:block}
+.success-icon{font-size:48px;margin-bottom:18px}
+.success-title{font-size:36px;font-weight:600;font-style:italic;margin-bottom:12px;background:linear-gradient(135deg,#f5a623,#e8622a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.success-txt{font-size:18px;color:rgba(240,237,230,.55);font-style:italic;line-height:1.7}
+.error-msg{display:none;background:rgba(232,98,42,.12);border:1px solid rgba(232,98,42,.3);padding:14px 18px;margin-top:16px;font-size:15px;color:rgba(240,237,230,.7);font-style:italic;text-align:center}
+.error-msg.show{display:block}
+
+footer{position:relative;z-index:1;border-top:1px solid rgba(245,166,35,.15);padding:52px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;background:rgba(7,17,26,.5)}
+.f-logo{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:#f5a623}
+.f-info{font-size:14px;color:rgba(240,237,230,.35);font-style:italic;text-align:right;line-height:1.6}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:720px){
+  nav{padding:16px 20px}.nav-links{display:none}
+  .about-grid,.two-col{grid-template-columns:1fr}
+  .form-box{padding:36px 22px}.hero-stats{gap:28px}
+  footer{flex-direction:column;text-align:center}.f-info{text-align:center}
+}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+<nav>
+  <div class="nav-logo">RE.GEN.</div>
+  <ul class="nav-links">
+    <li><a href="#about">Про табір</a></li>
+    <li><a href="#schedule">Програма</a></li>
+    <li><a href="#register">Реєстрація</a></li>
+  </ul>
+  <a class="nav-cta" href="#register" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'});return false;">Зареєструватись</a>
+</nav>
+
+<section class="hero">
+  <div class="badge">Sweden 2026 · Офіційне запрошення</div>
+  <p class="hero-script">camp</p>
+  <h1 class="hero-title">REVIVAL</h1>
+  <p class="hero-gen">generation</p>
+  <div class="hero-rule"></div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-label">Вартість</div><div class="stat-val">150 €</div></div>
+    <div class="stat-sep"></div>
+    <div class="stat"><div class="stat-label">Дата</div><div class="stat-val">28.07 – 02.08</div></div>
+  </div>
+  <p class="hero-loc">Nyhem, Mullsjö · Sweden</p>
+  <button class="hero-btn" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})">Зареєструватись →</button>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div>
+        <p class="section-tag">Про табір</p>
+        <h2 class="section-title">Час для <em>пробудження</em></h2>
+        <p class="about-text">Revival — це не подія, це те, що відбувається в серці. Чотири дні разом із Богом серед природи.</p>
+        <div class="verse-block">
+          <div class="verse-text">Це рід тих, що шукають Господа, шукають лиця Твого, Боже Яковів. Піднімайте, врата, верхи ваші, піднімайтеся, врата вічні, — і ввійде Цар слави! Хто ж то Цар слави? — Господь сильний й могутній, Господь, що потужний в бою! Піднімайте, врата, верхи ваші, піднімайтеся, врата вічні, — і ввійде Цар слави! Хто ж то Він, той Цар слави? Господь Саваот — Він Цар слави!</div>
+          <div class="verse-ref">Псалом 24:6–10 · НПУ</div>
+        </div>
+      </div>
+      <div class="cards-grid">
+        <div class="info-card"><div class="card-icon">📅</div><div class="card-lbl">Дата</div><div class="card-val">28 лип — 2 серп</div><div class="card-sub">6 днів</div></div>
+        <div class="info-card"><div class="card-icon">📍</div><div class="card-lbl">Місце</div><div class="card-val">Nyhem, Mullsjö</div><div class="card-sub">Sweden</div></div>
+        <div class="info-card"><div class="card-icon">💰</div><div class="card-lbl">Ціна</div><div class="card-val">150 €</div><div class="card-sub">Все включено</div></div>
+        <div class="info-card"><div class="card-icon">✝️</div><div class="card-lbl">Організатор</div><div class="card-val">RE.GEN.</div><div class="card-sub">Revival Generation</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="schedule">
+  <div class="section-inner">
+    <p class="section-tag" style="text-align:center">Програма</p>
+    <h2 class="section-title" style="text-align:center;margin-bottom:60px">Що на нас <em>чекає</em></h2>
+    <div class="timeline-wrap">
+      <div class="tl-row"><div class="tl-dot"></div><div class="tl-date">28 ЛИПНЯ</div><div><div class="tl-title">Заїзд та відкриття</div><div class="tl-desc">Розміщення, знайомство, вечірнє богослужіння відкриття</div></div></div>
+      <div class="tl-row"><div class="tl-dot"></div><div class="tl-date">29 ЛИП — 1 СЕРП</div><div><div class="tl-title">Основна програма</div><div class="tl-desc">Ранкові та вечірні служби, поклоніння, воркшопи, спільнота та відпочинок на природі</div></div></div>
+      <div class="tl-row"><div class="tl-dot"></div><div class="tl-date">2 СЕРПНЯ</div><div><div class="tl-title">Закриття</div><div class="tl-desc">Заключне богослужіння, прощання та від'їзд</div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="register">
+  <div class="register-wrap">
+    <div class="register-head">
+      <p class="section-tag">Реєстрація</p>
+      <h2 class="register-title">Забронюй своє <em>місце</em></h2>
+      <p class="register-sub">Заповни форму — ми зв'яжемось із тобою для підтвердження.</p>
+    </div>
+    <div class="deposit-note">
+      <div class="deposit-note-icon">💳</div>
+      <div class="deposit-note-text">Для підтвердження місця необхідно сплатити <strong>завдаток 50 €</strong>. Решта суми (<strong>100 €</strong>) сплачується до від'їзду. Загальна вартість табору — <strong>150 €</strong>.</div>
+    </div>
+    <div class="form-box">
+      <div id="formWrap">
+        <div class="two-col">
+          <div class="field"><label>Ім'я *</label><input type="text" id="fname" placeholder="Іван"></div>
+          <div class="field"><label>Прізвище *</label><input type="text" id="lname" placeholder="Коваленко"></div>
+        </div>
+        <div class="field"><label>Email *</label><input type="email" id="email" placeholder="ivan@example.com"></div>
+        <div class="field"><label>Телефон *</label><input type="tel" id="phone" placeholder="+46 70 000 00 00"></div>
+        <div class="field"><label>Місто / Країна *</label><input type="text" id="city" placeholder="Стокгольм, Швеція"></div>
+        <button class="submit-btn" id="submitBtn" onclick="handleSubmit()">Надіслати реєстрацію →</button>
+        <div class="error-msg" id="errorMsg">Щось пішло не так. Спробуй ще раз.</div>
+      </div>
+      <div class="success-box" id="successMsg">
+        <div class="success-icon">🔥</div>
+        <div class="success-title">Реєстрацію отримано!</div>
+        <div class="success-txt">Ми зв'яжемось із тобою найближчим часом з деталями оплати завдатку.<br><br>До зустрічі в Mullsjö!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">RE.GEN. · Revival Generation</div>
+  <div class="f-info">Revival Camp 2026<br>Nyhem, Mullsjö, Sweden · 28.07–02.08</div>
+</footer>
+
+</div>
+<script>
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzy8Gk610CEJqNk_QHnok12h3J6jGO4wxOBWwThFdQvEA7x_XO_qYqasrV5FVf2LNppnA/exec';
+
+async function handleSubmit() {
+  const ids = ['fname','lname','email','phone','city'];
+  let ok = true;
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    el.classList.remove('err');
+    if (!el.value.trim()) { el.classList.add('err'); ok = false; setTimeout(() => el.classList.remove('err'), 3000); }
+  });
+  if (!ok) return;
+
+  const btn = document.getElementById('submitBtn');
+  const errMsg = document.getElementById('errorMsg');
+  btn.textContent = 'Надсилаємо...';
+  btn.disabled = true;
+  errMsg.classList.remove('show');
+
+  const data = {
+    fname: document.getElementById('fname').value.trim(),
+    lname: document.getElementById('lname').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    phone: document.getElementById('phone').value.trim(),
+    city:  document.getElementById('city').value.trim(),
+  };
+
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    document.getElementById('formWrap').style.display = 'none';
+    document.getElementById('successMsg').classList.add('show');
+  } catch(e) {
+    btn.textContent = 'Надіслати реєстрацію →';
+    btn.disabled = false;
+    errMsg.classList.add('show');
+  }
+}
+</script>
+</body>
+</html>
